@@ -2,15 +2,18 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {ChatComponent} from '../components/chat/chat.component';
 import {WikiPageComponent} from '../components/wiki-page/wiki-page.component';
+import {DocumentsComponentComponent} from '../components/documents-component/documents-component.component';
 
 const routes: Routes = [
     {
         path: '',
-        component: WikiPageComponent
-    },
-    {
-        path: 'project/:id',
-        component: WikiPageComponent
+        component: DocumentsComponentComponent,
+        children: [
+            {
+                path: ':id',
+                component: WikiPageComponent
+            }
+        ]
     },
     {
         path: 'chat',

@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {ChatComponent} from '../chat/chat.component';
+import {ActivatedRoute, Params} from '@angular/router';
 
 
 @Component({
@@ -22,11 +23,15 @@ export class WikiPageComponent implements OnInit {
         }
     }
 
-    constructor(private modalService: NgbModal) {
+    constructor(private modalService: NgbModal, private route: ActivatedRoute) {
     }
 
     ngOnInit() {
         this.isFroalaActive = this.editorContent === undefined;
+        this.route.params
+            .subscribe((params: Params) => {
+            console.log(params, 'Params.');
+            });
     }
 
     openChat() {

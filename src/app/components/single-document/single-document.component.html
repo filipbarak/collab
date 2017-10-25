@@ -1,5 +1,5 @@
 <div *ngFor="let document of documents">
-    <div class="col-12 project-container" [routerLink]="['/project', document.id]">
+    <div class="col-12 project-container mb-2" [routerLink]="['/', document.id]" routerLinkActive="active">
         <img src={{document.imgPath}} class="img-fluid pb-2">
         <div class="icons">
             <i class="fa fa-lightbulb-o fa-2x ml-1" aria-hidden="true"></i>
