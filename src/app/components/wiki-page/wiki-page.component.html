@@ -15,16 +15,18 @@
         <div *ngIf="isFroalaActive">
             <div [froalaEditor]="options"  [(froalaModel)]="commonService.selectedProject.text"></div>
             <ng-template #empty>
-                <p>Nothing to see here</p>
+                <span><p class="link" (click)="isFroalaActive = true">Start editing this wiki.</p></span>
             </ng-template>
             <button class="btn btn-grey float-right mt-2" (click)="saveWiki()">Save</button>
         </div>
         <div *ngIf="!isFroalaActive" class="col-10 offset-1">
             <div *ngIf="commonService.selectedProject.text; else empty" [froalaView]="commonService.selectedProject.text"></div>
             <ng-template #empty>
-                <p>Nothing to see here</p>
+                <span><p class="link" (click)="isFroalaActive = true">Start editing this wiki.</p></span>
             </ng-template>
         </div>
         <!--<div [innerHTML]="froalaHtml" *ngIf="!isFroalaActive"></div>-->
     </div>
+    <disqus-thread [page-identifier]="commonService.pageIdentifier" [page-url]="commonService.pageUrl"></disqus-thread>
 </div>
+

@@ -11,7 +11,6 @@ import {CommonService} from '../../common.service';
     styleUrls: ['./wiki-page.component.scss']
 })
 export class WikiPageComponent implements OnInit {
-
     public isFroalaActive: boolean;
     public froalaHtml: string;
     public options = {
@@ -22,7 +21,7 @@ export class WikiPageComponent implements OnInit {
                 console.log(this.froalaHtml, 'HTML');
             }
         }
-    }
+    };
 
     constructor(private modalService: NgbModal, private route: ActivatedRoute, public commonService: CommonService) {
     }
@@ -31,7 +30,7 @@ export class WikiPageComponent implements OnInit {
         this.isFroalaActive = this.commonService === undefined;
         this.route.params
             .subscribe((params: Params) => {
-            console.log(params, 'Params.');
+                console.log(params, 'Params.');
             });
     }
 

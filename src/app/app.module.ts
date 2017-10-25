@@ -8,8 +8,10 @@ import {AppRoutingModule} from './app-routing/app-routing.module';
 import {ChatComponent} from './components/chat/chat.component';
 import {SingleDocumentComponent} from './components/single-document/single-document.component';
 import {FroalaEditorModule, FroalaViewModule} from 'angular-froala-wysiwyg';
-import { EditorComponent } from './components/editor/editor.component';
+import {EditorComponent} from './components/editor/editor.component';
 import {CommonService} from './common.service';
+import { DisqusComponent } from './components/disqus/disqus.component';
+import {DisqusModule} from 'angular2-disqus';
 
 
 @NgModule({
@@ -19,12 +21,14 @@ import {CommonService} from './common.service';
         WikiPageComponent,
         ChatComponent,
         SingleDocumentComponent,
-        EditorComponent
+        EditorComponent,
+        DisqusComponent
     ],
     imports: [
         BrowserModule,
         NgbModule.forRoot(),
         FroalaEditorModule.forRoot(),
+        DisqusModule,
         FroalaViewModule.forRoot(),
         AppRoutingModule
 
