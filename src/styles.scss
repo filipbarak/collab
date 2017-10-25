@@ -1,0 +1,59 @@
+$dark-green: #007C88;
+$dark-red: #A54731;
+$light-red: #E3AEA1;
+$link-red: #C96E63;
+$text-grey: #7F7F7F;
+
+
+body {
+  background: url("./assets/gray-background.svg");
+}
+.document-sidebar {
+  float: left;
+  background-color: $dark-green;
+  color: white;
+  text-align: center;
+}
+
+.black {
+  color: black;
+}
+
+.grey {
+  color: $text-grey;
+}
+
+.dark-green {
+  color: $dark-green;
+}
+
+.dark-red {
+  color: $dark-red;
+}
+
+.link-red {
+  color: $link-red;
+}
+
+.light-red {
+  color: $light-red;
+}
+
+.wiki-page {
+  float: right;
+}
+
+.btn {
+  font-weight: 500 !important;
+  border-radius: 0 !important;
+  color: white;
+}
+
+.btn-grey {
+  background-color: $text-grey;
+  &:hover {
+    background-color: lightgray;
+    color: $text-grey;
+    cursor: pointer;
+  }
+}

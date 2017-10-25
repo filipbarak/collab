@@ -1,0 +1,11 @@
+<div *ngFor="let document of documents">
+    <div class="col-12 project-container" [routerLink]="['/project', document.id]">
+        <img src={{document.imgPath}} class="img-fluid pb-2">
+        <div class="icons">
+            <i class="fa fa-lightbulb-o fa-2x ml-1" aria-hidden="true"></i>
+            <i class="fa fa-cog fa-2x ml-1" aria-hidden="true"></i>
+            <i class="fa fa-thumbs-up fa-2x ml-1" aria-hidden="true"></i>
+            <i class="fa fa-rocket fa-2x ml-1" aria-hidden="true"></i>
+        </div>
+    </div>
+</div>

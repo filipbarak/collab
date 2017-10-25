@@ -1,0 +1,24 @@
+<div class="col-10 wiki-page">
+    <div class="col-12 w-100 header-bar grey">
+        <i class="fa fa-caret-up" aria-hidden="true"></i>
+        <span class="h5 mr-2">Project Plan</span>
+        <i class="fa fa-caret-up" aria-hidden="true"></i>
+        <span class="h5 mr-5">P2PATM</span>
+        <span class="mr-2" (click)="saveWiki()">Read</span>
+        <span class="mr-2 link" (click)="editWiki()">Edit</span>
+        <span class="mr-2 link">View history</span>
+        <input type="text" id="search-wiki" size="30" placeholder="Search AdelWiki">
+        <i class="fa fa-angle-left fa-3x float-right light-red d-inline" id="arrow"
+           (click)="openChat()"></i>
+    </div>
+    <div class="col-12 w-100 grey" id="main-content">
+        <div *ngIf="isFroalaActive">
+            <div [froalaEditor]="options" [(froalaModel)]="editorContent"></div>
+            <button class="btn btn-grey float-right mt-2" (click)="saveWiki()">Save</button>
+        </div>
+        <div *ngIf="!isFroalaActive" class="col-10 offset-1">
+            <div [froalaView]="editorContent"></div>
+        </div>
+        <!--<div [innerHTML]="froalaHtml" *ngIf="!isFroalaActive"></div>-->
+    </div>
+</div>

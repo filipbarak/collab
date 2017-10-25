@@ -1,0 +1,22 @@
+
+
+#new-idea-container {
+    background-color: #CA624B;
+    margin: 10px 0 200px;
+    padding: 0;
+}
+
+.icons {
+    padding-bottom: 5px;
+}
+
+#new-idea {
+    font-weight: 600;
+    padding-top: 5px;
+}
+
+#popularity {
+    font-weight: 600;
+    padding-right: 3px;
+}
+

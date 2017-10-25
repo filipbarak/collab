@@ -1,16 +1,36 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {AppComponent} from './app.component';
+import {DocumentsComponentComponent} from './components/documents-component/documents-component.component';
+import {WikiPageComponent} from './components/wiki-page/wiki-page.component';
+import {AppRoutingModule} from './app-routing/app-routing.module';
+import {ChatComponent} from './components/chat/chat.component';
+import {SingleDocumentComponent} from './components/single-document/single-document.component';
+import {FroalaEditorModule, FroalaViewModule} from 'angular-froala-wysiwyg';
+import { EditorComponent } from './components/editor/editor.component';
 
-import { AppComponent } from './app.component';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        DocumentsComponentComponent,
+        WikiPageComponent,
+        ChatComponent,
+        SingleDocumentComponent,
+        EditorComponent
+    ],
+    imports: [
+        BrowserModule,
+        NgbModule.forRoot(),
+        FroalaEditorModule.forRoot(),
+        FroalaViewModule.forRoot(),
+        AppRoutingModule
+
+    ],
+    entryComponents: [ChatComponent],
+    providers: [],
+    bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
