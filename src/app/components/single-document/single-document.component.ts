@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {CommonService} from '../../common.service';
 
 @Component({
   selector: 'single-document',
@@ -8,7 +9,7 @@ import {Component, Input, OnInit} from '@angular/core';
 export class SingleDocumentComponent implements OnInit {
   @Input() documents;
 
-  constructor() { }
+  constructor(public commonService: CommonService) { }
 
   ngOnInit() {
   }

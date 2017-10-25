@@ -9,6 +9,7 @@ import {ChatComponent} from './components/chat/chat.component';
 import {SingleDocumentComponent} from './components/single-document/single-document.component';
 import {FroalaEditorModule, FroalaViewModule} from 'angular-froala-wysiwyg';
 import { EditorComponent } from './components/editor/editor.component';
+import {CommonService} from './common.service';
 
 
 @NgModule({
@@ -29,7 +30,7 @@ import { EditorComponent } from './components/editor/editor.component';
 
     ],
     entryComponents: [ChatComponent],
-    providers: [],
+    providers: [CommonService],
     bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -7,13 +7,7 @@ import {DocumentsComponentComponent} from '../components/documents-component/doc
 const routes: Routes = [
     {
         path: '',
-        component: DocumentsComponentComponent,
-        children: [
-            {
-                path: ':id',
-                component: WikiPageComponent
-            }
-        ]
+        component: DocumentsComponentComponent
     },
     {
         path: 'chat',
