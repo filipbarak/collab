@@ -1,9 +1,10 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output, state, style, transition, trigger} from '@angular/core';
 
 @Component({
     selector: 'documents-component',
     templateUrl: './documents-component.component.html',
-    styleUrls: ['./documents-component.component.css']
+    styleUrls: ['./documents-component.component.css'],
+
 })
 export class DocumentsComponentComponent implements OnInit {
     public documents = [];
@@ -19,7 +20,8 @@ export class DocumentsComponentComponent implements OnInit {
         this.documents.push({
             'title': 'New Project',
             'imgPath': '../../../assets/blockchain-green.jpg',
-            'id': this.count++
+            'id': this.count++,
+            'state': 'normal'
         });
         console.log(this.documents);
     }

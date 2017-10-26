@@ -1,8 +1,13 @@
-<div *ngFor="let document of documents">
-    <div class="col-12 project-container mb-2" (click)="commonService.selectedProject = document" routerLinkActive="active">
+<div *ngFor="let document of documents"
+     [@listState]
+     (click)="animateDoc(document)">
+    <div class="col-12 project-container mb-2"
+         [@singleDocument]="document.state"
+         (click)="commonService.selectedProject = document"
+         routerLinkActive="active">
         <img src={{document.imgPath}} class="img-fluid pb-2">
         <div class="icons">
-            <i class="fa fa-lightbulb-o fa-2x ml-1" aria-hidden="true"></i>
+            <i [class.active]="commonService.selectedProject.id == document.id" class="fa fa-lightbulb-o fa-2x ml-1" aria-hidden="true"></i>
             <i class="fa fa-cog fa-2x ml-1" aria-hidden="true"></i>
             <i class="fa fa-thumbs-up fa-2x ml-1" aria-hidden="true"></i>
             <i class="fa fa-rocket fa-2x ml-1" aria-hidden="true"></i>

@@ -12,6 +12,7 @@ import {EditorComponent} from './components/editor/editor.component';
 import {CommonService} from './common.service';
 import { DisqusComponent } from './components/disqus/disqus.component';
 import {DisqusModule} from 'angular2-disqus';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import {DisqusModule} from 'angular2-disqus';
         FroalaEditorModule.forRoot(),
         DisqusModule,
         FroalaViewModule.forRoot(),
-        AppRoutingModule
+        AppRoutingModule,
+        BrowserAnimationsModule
 
     ],
     entryComponents: [ChatComponent],
