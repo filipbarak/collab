@@ -46,14 +46,18 @@ import {CommonService} from '../../common.service';
                 opacity: 1
             })),
             transition('normal => clicked', [
-                animate(300, keyframes([
+                animate(200, keyframes([
                     style({
                         transform: 'scale(0.6)',
-                        offset: 0.3
+                        offset: 0.4
+                    }),
+                    style({
+                        transform: 'scale(0.7)',
+                        offset: 0.6
                     }),
                     style({
                         transform: 'scale(0.8)',
-                        offset: 0.7
+                        offset: 0.8
                     }),
                     style({
                         transform: 'scale(1)',
@@ -79,7 +83,7 @@ export class SingleDocumentComponent implements OnInit {
             console.log(document, 'DOC.');
             setTimeout(() => {
                 document.state = 'normal';
-            }, 300);
+            }, 200);
         }
     }
 }

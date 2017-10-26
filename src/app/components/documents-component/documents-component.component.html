@@ -3,7 +3,7 @@
     <div id="new-idea-container" class="col-12">
         <p id="new-idea">New Idea</p>
         <div class="icons">
-            <i class="fa fa-lightbulb-o fa-2x ml-1" (click)="createDocument()"></i>
+            <i class="fa fa-lightbulb-o fa-2x ml-1" [@bulbState]="bulbState" (click)="createDocument()"></i>
             <i class="fa fa-cog fa-2x black ml-1"></i>
             <i class="fa fa-thumbs-up fa-2x black ml-1"></i>
             <i class="fa fa-rocket fa-2x black ml-1"></i>

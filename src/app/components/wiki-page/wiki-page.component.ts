@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {animate, Component, keyframes, OnInit, state, style, transition, trigger} from '@angular/core';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {ChatComponent} from '../chat/chat.component';
 import {ActivatedRoute, Params} from '@angular/router';
@@ -8,8 +8,8 @@ import {CommonService} from '../../common.service';
 @Component({
     selector: 'wiki-page',
     templateUrl: './wiki-page.component.html',
-    styleUrls: ['./wiki-page.component.scss']
-})
+    styleUrls: ['./wiki-page.component.scss'],
+    })
 export class WikiPageComponent implements OnInit {
     public isFroalaActive: boolean;
     public froalaHtml: string;
@@ -22,7 +22,6 @@ export class WikiPageComponent implements OnInit {
             }
         }
     };
-
     constructor(private modalService: NgbModal, private route: ActivatedRoute, public commonService: CommonService) {
     }
 
@@ -41,6 +40,10 @@ export class WikiPageComponent implements OnInit {
     saveWiki() {
         this.isFroalaActive = false;
         //Some API here
+    }
+
+    hasDoc() {
+        console.log(this.commonService.hasDoc, 'hasDoc');
     }
 
 

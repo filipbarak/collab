@@ -3,7 +3,7 @@
      (click)="animateDoc(document)">
     <div class="col-12 project-container mb-2"
          [@singleDocument]="document.state"
-         (click)="commonService.selectedProject = document"
+         (click)="commonService.selectedProject = document; commonService.hasDoc = true"
          routerLinkActive="active">
         <img src={{document.imgPath}} class="img-fluid pb-2">
         <div class="icons">
