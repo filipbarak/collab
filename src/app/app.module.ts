@@ -15,6 +15,8 @@ import {DisqusModule} from 'angular2-disqus';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { NewDocModalComponent } from './components/new-doc-modal/new-doc-modal.component';
 import {FormsModule} from '@angular/forms';
+import { IdeaPlaceholderComponent } from './components/idea-placeholder/idea-placeholder.component';
+import { PlanPlaceholderComponent } from './components/plan-placeholder/plan-placeholder.component';
 
 
 @NgModule({
@@ -26,7 +28,9 @@ import {FormsModule} from '@angular/forms';
         SingleDocumentComponent,
         EditorComponent,
         DisqusComponent,
-        NewDocModalComponent
+        NewDocModalComponent,
+        IdeaPlaceholderComponent,
+        PlanPlaceholderComponent
     ],
     imports: [
         BrowserModule,

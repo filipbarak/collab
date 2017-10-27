@@ -65,7 +65,8 @@ export class DocumentsComponentComponent implements OnInit {
             'imgPath': '../../../assets/newdoc-placeholder.png',
             'id': this.count++,
             'state': 'normal',
-            'titleEditable': false
+            'titleEditable': false,
+            'isIdea': false
         });
         if (this.bulbState === 'normal') {
             this.bulbState = 'clicked';
@@ -77,6 +78,7 @@ export class DocumentsComponentComponent implements OnInit {
     }
 
     open(content) {
+        this.title = '';
         this.modalService.open(content).result.then((result) => {
         }, (reason) => {
 

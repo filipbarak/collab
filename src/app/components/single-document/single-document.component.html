@@ -22,9 +22,14 @@
         <input #fileInput type="file" class="d-none" (change)="readUrl($event, document, i)" [hidden]>
         <div [@singleDocument]="document.state" (click)="animateDoc(document); commonService.selectedProject = document;">
             <div class="icons">
-                <i [class.active]="commonService.selectedProject.id == document.id" class="fa fa-lightbulb-o fa-2x ml-1"
+                <i [class.active]="document.isIdea === true"
+                   class="fa fa-lightbulb-o fa-2x ml-1"
+                   (click)="document.isIdea = true"
                    aria-hidden="true"></i>
-                <i class="fa fa-cog fa-2x ml-1" aria-hidden="true"></i>
+                <i class="fa fa-cog fa-2x ml-1"
+                   [class.active]="document.isIdea === false"
+                   (click)="document.isIdea = false"
+                   aria-hidden="true"></i>
                 <i class="fa fa-thumbs-up fa-2x ml-1" aria-hidden="true"></i>
                 <i class="fa fa-rocket fa-2x ml-1" aria-hidden="true"></i>
             </div>

@@ -11,34 +11,57 @@
         <i class="fa fa-angle-left fa-3x float-right light-red d-inline" id="arrow"
            (click)="openChat()"></i>
     </div>
-    <div *ngIf="commonService.hasDoc"
-         class="col-12 w-100 align-content-center text-center mt-4 mb-3"
-         (click)="editable = true">
-        <h3>{{commonService.selectedProject.title}}</h3>
-    </div>
     <div class="col-12 w-100 grey" id="main-content" *ngIf="commonService.hasDoc; else noid">
-        <div *ngIf="isFroalaActive">
-            <div [froalaEditor]="options" [(froalaModel)]="commonService.selectedProject.text"></div>
-            <ng-template #empty>
-                <div class="align-content-center text-center">
-                    <p class="link" (click)="isFroalaActive = true">Start editing this wiki.</p>
-                </div>
-            </ng-template>
-            <button class="btn btn-grey float-right mt-2" (click)="saveWiki()">Save</button>
-        </div>
-        <div *ngIf="!isFroalaActive" class="col-12">
-            <div *ngIf="commonService.selectedProject.text; else empty"
-                 [froalaView]="commonService.selectedProject.text"
-                 class="bg-faded froala-wrapper froala-border">
+        <div *ngIf="commonService.selectedProject.isIdea">
+            <div *ngIf="isFroalaActive">
+                <div [froalaEditor]="options" [(froalaModel)]="commonService.selectedProject.text"></div>
+                <ng-template #empty>
+                    <div class="align-content-center text-center">
+                        <p class="link" (click)="isFroalaActive = true">Start editing this idea.</p>
+                    </div>
+                </ng-template>
+                <button class="btn btn-grey float-right mt-2" (click)="saveWiki()">Save</button>
             </div>
-            <ng-template #empty>
-                <div class="align-content-center text-center">
-                    <p class="link" (click)="isFroalaActive = true">Start editing this wiki.</p>
+            <div *ngIf="!isFroalaActive" class="col-12">
+                <div *ngIf="commonService.selectedProject.text; else empty"
+                     [froalaView]="commonService.selectedProject.text"
+                     class="bg-faded froala-wrapper froala-border">
                 </div>
-            </ng-template>
+                <ng-template #empty>
+                    <div class="col-12">
+                        <p class="link align-content-center text-center" (click)="isFroalaActive = true">Start editing
+                            this idea.</p>
+                        <idea-placeholder></idea-placeholder>
+                    </div>
+                </ng-template>
+            </div>
+            <!--<div [innerHTML]="froalaHtml" *ngIf="!isFroalaActive"></div>-->
         </div>
-        <!--<div [innerHTML]="froalaHtml" *ngIf="!isFroalaActive"></div>-->
-
+        <div *ngIf="!commonService.selectedProject.isIdea">
+            <div *ngIf="isFroalaActive">
+                <div [froalaEditor]="options" [(froalaModel)]="commonService.selectedProject.plan"></div>
+                <ng-template #empty>
+                    <div class="align-content-center text-center">
+                        <p class="link" (click)="isFroalaActive = true">Start editing this plan.</p>
+                    </div>
+                </ng-template>
+                <button class="btn btn-grey float-right mt-2" (click)="saveWiki()">Save</button>
+            </div>
+            <div *ngIf="!isFroalaActive" class="col-12">
+                <div *ngIf="commonService.selectedProject.plan; else empty"
+                     [froalaView]="commonService.selectedProject.plan"
+                     class="bg-faded froala-wrapper froala-border">
+                </div>
+                <ng-template #empty>
+                    <div class="col-12">
+                        <div class="align-content-center text-center">
+                            <p class="link" (click)="isFroalaActive = true">Start editing this plan.</p>
+                        </div>
+                        <plan-placeholder></plan-placeholder>
+                    </div>
+                </ng-template>
+            </div>
+        </div>
     </div>
     <disqus-thread [page-identifier]="commonService.pageIdentifier"
                    [page-url]="commonService.pageUrl"></disqus-thread>

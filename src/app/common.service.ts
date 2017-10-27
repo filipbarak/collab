@@ -6,6 +6,8 @@ export class CommonService {
   selectedProject = {};
   pageUrl = '';
   pageIdentifier = '';
+  isIdea: boolean = false;
+  isPlan: boolean = false;
   constructor() { }
 
 }
