@@ -1,9 +1,11 @@
 <div class="col-10 wiki-page">
     <div class="col-12 w-100 header-bar grey">
-        <i class="fa fa-caret-up" aria-hidden="true"></i>
-        <span class="h5 mr-2" *ngIf="commonService.selectedProject.isIdea">Project Idea</span>
-        <span class="h5 mr-2" *ngIf="!commonService.selectedProject.isIdea">Project Plan</span>
-        <i class="fa fa-caret-up" aria-hidden="true"></i>
+        <div *ngIf="commonService.hasDoc" class="d-inline">
+            <i class="fa fa-caret-up" aria-hidden="true"></i>
+            <span class="h5 mr-2" *ngIf="commonService.selectedProject.isIdea">Project Idea</span>
+            <span class="h5 mr-2" *ngIf="!commonService.selectedProject.isIdea">Project Plan</span>
+            <i class="fa fa-caret-up" aria-hidden="true"></i>
+        </div>
         <span class="h5 mr-5">{{commonService.selectedProject.title}}</span>
         <span class="mr-2" (click)="saveWiki()">Read</span>
         <span class="mr-2 link" (click)="isFroalaActive = true">Edit</span>
