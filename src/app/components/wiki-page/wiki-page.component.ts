@@ -4,6 +4,8 @@ import {ChatComponent} from '../chat/chat.component';
 import {ActivatedRoute, Params} from '@angular/router';
 import {CommonService} from '../../common.service';
 
+const packageJ = require('../../../../package.json');
+
 
 @Component({
     selector: 'wiki-page',
@@ -11,10 +13,11 @@ import {CommonService} from '../../common.service';
     styleUrls: ['./wiki-page.component.scss'],
 })
 export class WikiPageComponent implements OnInit {
+    version = packageJ.version;
     private editable: boolean = false;
     public isFroalaActive: boolean;
     public froalaHtml: string;
-    @ViewChild('chat')chatComponent;
+    @ViewChild('chat') chatComponent;
     public options = {
         placeholder: 'Edit this wiki',
         events: {
@@ -53,3 +56,5 @@ export class WikiPageComponent implements OnInit {
     }
 
 }
+
+declare var require: any;
