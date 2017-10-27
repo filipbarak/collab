@@ -1,13 +1,16 @@
 
-
 #new-idea-container {
     background-color: #CA624B;
-    margin: 10px 0 200px;
+    margin: 10px 0 5px;
     padding: 0;
 }
 
 .icons {
     padding-bottom: 5px;
+}
+
+.mb-200 {
+    margin-bottom: 200px;
 }
 
 #new-idea {

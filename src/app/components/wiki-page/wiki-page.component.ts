@@ -9,7 +9,7 @@ import {CommonService} from '../../common.service';
     selector: 'wiki-page',
     templateUrl: './wiki-page.component.html',
     styleUrls: ['./wiki-page.component.scss'],
-    })
+})
 export class WikiPageComponent implements OnInit {
     private editable: boolean = false;
     public isFroalaActive: boolean;
@@ -23,6 +23,7 @@ export class WikiPageComponent implements OnInit {
             }
         }
     };
+
     constructor(private modalService: NgbModal, private route: ActivatedRoute, public commonService: CommonService) {
     }
 

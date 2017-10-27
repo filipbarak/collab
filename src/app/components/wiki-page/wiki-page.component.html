@@ -14,24 +14,31 @@
     <div class="col-12 w-100 grey" id="main-content" *ngIf="commonService.hasDoc; else noid">
         <div *ngIf="commonService.selectedProject.isIdea">
             <div *ngIf="isFroalaActive">
-                <div [froalaEditor]="options" [(froalaModel)]="commonService.selectedProject.text"></div>
+                <div [froalaEditor]="options"
+                     [(froalaModel)]="commonService.selectedProject.text"></div>
                 <ng-template #empty>
                     <div class="align-content-center text-center">
-                        <p class="link" (click)="isFroalaActive = true">Start editing this idea.</p>
+                        <p class="link"
+                           (click)="isFroalaActive = true;
+                             commonService.selectedProject.text = commonService.ideaTemplate ">
+                            Start editing this idea.</p>
+                        <div [froalaView]="commonService.ideaTemplate"></div>
                     </div>
                 </ng-template>
-                <button class="btn btn-grey float-right mt-2" (click)="saveWiki()">Save</button>
+                <button class="btn btn-grey float-right mt-2" (click)="saveWiki();">Save</button>
             </div>
             <div *ngIf="!isFroalaActive" class="col-12">
                 <div *ngIf="commonService.selectedProject.text; else empty"
-                     [froalaView]="commonService.selectedProject.text"
-                     class="bg-faded froala-wrapper froala-border">
+                     [froalaView]="commonService.selectedProject.text">
                 </div>
                 <ng-template #empty>
                     <div class="col-12">
-                        <p class="link align-content-center text-center" (click)="isFroalaActive = true">Start editing
+                        <p class="link align-content-center text-center"
+                           (click)="isFroalaActive = true;
+                            commonService.selectedProject.text = commonService.ideaTemplate">
+                            Start editing
                             this idea.</p>
-                        <idea-placeholder></idea-placeholder>
+                        <div [froalaView]="commonService.ideaTemplate"></div>
                     </div>
                 </ng-template>
             </div>
@@ -39,25 +46,33 @@
         </div>
         <div *ngIf="!commonService.selectedProject.isIdea">
             <div *ngIf="isFroalaActive">
-                <div [froalaEditor]="options" [(froalaModel)]="commonService.selectedProject.plan"></div>
+                <div [froalaEditor]="options"
+                     [(froalaModel)]="commonService.selectedProject.plan"></div>
                 <ng-template #empty>
                     <div class="align-content-center text-center">
-                        <p class="link" (click)="isFroalaActive = true">Start editing this plan.</p>
+                        <p class="link"
+                           (click)="isFroalaActive = true;
+                            commonService.selectedProject.plan = commonService.planTemplate">
+                            Start editing this plan.</p>
+                        <div [froalaView]="commonService.planTemplate"></div>
                     </div>
                 </ng-template>
-                <button class="btn btn-grey float-right mt-2" (click)="saveWiki()">Save</button>
+                <button class="btn btn-grey float-right mt-2"
+                        (click)="saveWiki();">Save
+                </button>
             </div>
             <div *ngIf="!isFroalaActive" class="col-12">
                 <div *ngIf="commonService.selectedProject.plan; else empty"
-                     [froalaView]="commonService.selectedProject.plan"
-                     class="bg-faded froala-wrapper froala-border">
+                     [froalaView]="commonService.selectedProject.plan">
                 </div>
                 <ng-template #empty>
                     <div class="col-12">
                         <div class="align-content-center text-center">
-                            <p class="link" (click)="isFroalaActive = true">Start editing this plan.</p>
+                            <p class="link" (click)="isFroalaActive = true;
+                            commonService.selectedProject.plan = commonService.planTemplate">
+                                Start editing this plan.</p>
                         </div>
-                        <plan-placeholder></plan-placeholder>
+                        <div [froalaView]="commonService.planTemplate"></div>
                     </div>
                 </ng-template>
             </div>

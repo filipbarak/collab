@@ -7,6 +7,7 @@ import {WikiPageComponent} from './components/wiki-page/wiki-page.component';
 import {AppRoutingModule} from './app-routing/app-routing.module';
 import {ChatComponent} from './components/chat/chat.component';
 import {SingleDocumentComponent} from './components/single-document/single-document.component';
+import "froala-editor/js/froala_editor.pkgd.min.js";
 import {FroalaEditorModule, FroalaViewModule} from 'angular-froala-wysiwyg';
 import {EditorComponent} from './components/editor/editor.component';
 import {CommonService} from './common.service';

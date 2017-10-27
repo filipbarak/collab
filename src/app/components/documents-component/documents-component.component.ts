@@ -3,7 +3,7 @@ import {
     trigger
 } from '@angular/core';
 import {CommonService} from '../../common.service';
-import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {NgbModal, NgbPopoverConfig} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
     selector: 'documents-component',

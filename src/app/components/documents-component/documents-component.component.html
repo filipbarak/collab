@@ -3,29 +3,33 @@
     <div id="new-idea-container" class="col-12">
         <p id="new-idea">New Idea</p>
         <div class="icons">
-            <i class="fa fa-lightbulb-o fa-2x ml-1" [@bulbState]="bulbState" (click)="open(content)"></i>
+            <i class="fa fa-lightbulb-o fa-2x ml-1" [@bulbState]="bulbState" (click)="open(content)"
+               style="cursor: pointer"></i>
             <i class="fa fa-cog fa-2x black ml-1"></i>
             <i class="fa fa-thumbs-up fa-2x black ml-1"></i>
             <i class="fa fa-rocket fa-2x black ml-1"></i>
         </div>
     </div>
+    <button class="btn btn-grey btn-sm mb-200" (click)="open(content)">Create new project.</button>
+
     <single-document [documents]="documents"></single-document>
 </div>
 
 <ng-template #content let-c="close" let-d="dismiss">
-        <div class="modal-body">
-            <label for="title">Enter a title for your new project</label>
-            <input id="title"
-                   type="text"
-                   class="form-control"
-                   (keyup.Enter)="c('Close click'); createDocument()"
-                   placeholder="Enter a title" [(ngModel)]="title">
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-grey"
-                    (click)="c('Close click'); createDocument()">Save</button>
-            <button type="button" class="btn btn-grey" (click)="c('Close click')">Close</button>
-        </div>
+    <div class="modal-body">
+        <label for="title">Enter a title for your new project</label>
+        <input id="title"
+               type="text"
+               class="form-control"
+               (keyup.Enter)="c('Close click'); createDocument()"
+               placeholder="Enter a title" [(ngModel)]="title">
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-grey"
+                (click)="c('Close click'); createDocument()">Save
+        </button>
+        <button type="button" class="btn btn-grey" (click)="c('Close click')">Close</button>
+    </div>
 </ng-template>
 
 
