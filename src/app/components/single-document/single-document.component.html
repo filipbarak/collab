@@ -18,8 +18,8 @@
                     (keyup.Enter)="editTitle(document, titleVal.value)"
                     (keyup.Escape)="document.titleEditable = false"/>
         </div>
-        <img src={{document.imgPath}} class="img-fluid pb-2" (click)="editImg()">
-        <input #fileInput type="file" class="d-none" (change)="readUrl($event, document, i)" [hidden]>
+        <img (click)="commonService.selectedProject = document" src={{document.imgPath}} class="img-fluid pb-2">
+
         <div [@singleDocument]="document.state" (click)="animateDoc(document); commonService.selectedProject = document;">
             <div class="icons">
                 <i [class.active]="document.isIdea === true"
@@ -31,7 +31,9 @@
                    (click)="document.isIdea = false"
                    aria-hidden="true"></i>
                 <i class="fa fa-thumbs-up fa-2x ml-1" aria-hidden="true"></i>
-                <i class="fa fa-rocket fa-2x ml-1" aria-hidden="true"></i>
+
+                <i class="fa fa-rocket fa-2x ml-1" (click)="editImg()" aria-hidden="true"></i>
+                <input #fileInput type="file" class="d-none" (change)="readUrl($event, document, i)" [hidden]>
             </div>
         </div>
     </div>

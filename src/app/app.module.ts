@@ -44,7 +44,7 @@ import { PlanPlaceholderComponent } from './components/plan-placeholder/plan-pla
         FormsModule
 
     ],
-    entryComponents: [ChatComponent],
+    entryComponents: [],
     providers: [CommonService],
     bootstrap: [AppComponent]
 })

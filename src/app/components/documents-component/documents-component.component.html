@@ -2,15 +2,18 @@
     <span id="popularity">Popularity</span><i class="fa fa-caret-down" aria-hidden="true"></i>
     <div id="new-idea-container" class="col-12">
         <p id="new-idea">New Idea</p>
-        <div class="icons">
-            <i class="fa fa-lightbulb-o fa-2x ml-1" [@bulbState]="bulbState" (click)="open(content)"
-               style="cursor: pointer"></i>
-            <i class="fa fa-cog fa-2x black ml-1"></i>
-            <i class="fa fa-thumbs-up fa-2x black ml-1"></i>
-            <i class="fa fa-rocket fa-2x black ml-1"></i>
+
+        <div class="iconsx">
+            <!--<i class="fa fa-lightbulb-o fa-2x ml-1" [@bulbState]="bulbState" (click)="open(content)"-->
+               <!--style="cursor: pointer"></i>-->
+            <!--<i class="fa fa-cog fa-2x black ml-1"></i>-->
+            <!--<i class="fa fa-thumbs-up fa-2x black ml-1"></i>-->
+            <!--<i class="fa fa-rocket fa-2x black ml-1"></i>-->
+            <button class="btn btn-grey btn-sm" style="margin-bottom: 20px" (click)="open(content)">Create new project.</button>
         </div>
     </div>
-    <button class="btn btn-grey btn-sm mb-200" (click)="open(content)">Create new project.</button>
+
+
 
     <single-document [documents]="documents"></single-document>
 </div>
@@ -34,3 +37,4 @@
 
 
 <wiki-page></wiki-page>
+

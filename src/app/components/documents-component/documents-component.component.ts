@@ -79,7 +79,7 @@ export class DocumentsComponentComponent implements OnInit {
 
     open(content) {
         this.title = '';
-        this.modalService.open(content).result.then((result) => {
+        this.modalService.open(content, {size: 'sm'}).result.then((result) => {
         }, (reason) => {
 
         });

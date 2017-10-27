@@ -1,4 +1,4 @@
-import {animate, Component, keyframes, OnInit, state, style, transition, trigger} from '@angular/core';
+import {animate, Component, keyframes, OnInit, state, style, transition, trigger, ViewChild} from '@angular/core';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {ChatComponent} from '../chat/chat.component';
 import {ActivatedRoute, Params} from '@angular/router';
@@ -14,6 +14,7 @@ export class WikiPageComponent implements OnInit {
     private editable: boolean = false;
     public isFroalaActive: boolean;
     public froalaHtml: string;
+    @ViewChild('chat')chatComponent;
     public options = {
         placeholder: 'Edit this wiki',
         events: {
@@ -47,7 +48,7 @@ export class WikiPageComponent implements OnInit {
     saveTitle(title, value) {
         this.editable = true;
         title = value;
-        console.log(title, value)
+        console.log(title, value);
 
     }
 
