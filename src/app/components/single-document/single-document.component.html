@@ -1,4 +1,4 @@
-<div *ngFor="let document of documents; let i = index"
+<div *ngFor="let document of commonService.documents; let i = index"
      [@listState]>
     <div class="col-12 project-container mb-2"
          (click)="commonService.hasDoc = true"

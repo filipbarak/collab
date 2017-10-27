@@ -18,6 +18,7 @@ import { NewDocModalComponent } from './components/new-doc-modal/new-doc-modal.c
 import {FormsModule} from '@angular/forms';
 import { IdeaPlaceholderComponent } from './components/idea-placeholder/idea-placeholder.component';
 import { PlanPlaceholderComponent } from './components/plan-placeholder/plan-placeholder.component';
+import { SearchPipe } from './pipes/search.pipe';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { PlanPlaceholderComponent } from './components/plan-placeholder/plan-pla
         DisqusComponent,
         NewDocModalComponent,
         IdeaPlaceholderComponent,
-        PlanPlaceholderComponent
+        PlanPlaceholderComponent,
+        SearchPipe
     ],
     imports: [
         BrowserModule,

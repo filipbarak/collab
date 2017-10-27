@@ -73,8 +73,6 @@ import {CommonService} from '../../common.service';
 })
 export class SingleDocumentComponent implements OnInit {
     @ViewChild('fileInput') fileInput;
-    @Input() documents;
-
     constructor(public commonService: CommonService, private renderer: Renderer) {
     }
 

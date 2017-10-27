@@ -53,14 +53,14 @@ export class DocumentsComponentComponent implements OnInit {
     public bulbState: string = 'normal';
     private count = 0;
 
-    constructor(private modalService: NgbModal) {
+    constructor(private modalService: NgbModal, private commonService: CommonService) {
     }
 
     ngOnInit() {
     }
 
     createDocument() {
-        this.documents.push({
+        this.commonService.documents.push({
             'title': this.title,
             'imgPath': '../../../assets/newdoc-placeholder.png',
             'id': this.count++,

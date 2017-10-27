@@ -5,17 +5,18 @@
 
         <div class="iconsx">
             <!--<i class="fa fa-lightbulb-o fa-2x ml-1" [@bulbState]="bulbState" (click)="open(content)"-->
-               <!--style="cursor: pointer"></i>-->
+            <!--style="cursor: pointer"></i>-->
             <!--<i class="fa fa-cog fa-2x black ml-1"></i>-->
             <!--<i class="fa fa-thumbs-up fa-2x black ml-1"></i>-->
             <!--<i class="fa fa-rocket fa-2x black ml-1"></i>-->
-            <button class="btn btn-grey btn-sm" style="margin-bottom: 20px" (click)="open(content)">Create new project.</button>
+            <button class="btn btn-grey btn-sm" style="margin-bottom: 20px" (click)="open(content)">Create new
+                project.
+            </button>
         </div>
     </div>
 
 
-
-    <single-document [documents]="documents"></single-document>
+    <single-document></single-document>
 </div>
 
 <ng-template #content let-c="close" let-d="dismiss">

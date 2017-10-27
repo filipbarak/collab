@@ -13,6 +13,7 @@ const packageJ = require('../../../../package.json');
     styleUrls: ['./wiki-page.component.scss'],
 })
 export class WikiPageComponent implements OnInit {
+    private filteredProjects = [];
     version = packageJ.version;
     private editable: boolean = false;
     public isFroalaActive: boolean;
@@ -53,6 +54,18 @@ export class WikiPageComponent implements OnInit {
         title = value;
         console.log(title, value);
 
+    }
+
+    filterProjects(evt, value, dropdown?) {
+        if (value) {
+            this.filteredProjects = this.commonService.documents.filter(i => i.title.toLowerCase().includes(value.toLowerCase()));
+            evt.stopPropagation();
+            dropdown.open();
+        }
+        else {
+            this.filteredProjects = [];
+            dropdown.close();
+        }
     }
 
 }

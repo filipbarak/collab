@@ -4,6 +4,7 @@ const idea = require('../app/placeholders/idea.html');
 
 @Injectable()
 export class CommonService {
+  documents = [];
   planTemplate = plan;
   ideaTemplate = idea;
   hasDoc: boolean = false;
