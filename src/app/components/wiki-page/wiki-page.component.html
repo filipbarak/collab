@@ -9,7 +9,12 @@
         <span class="mr-2 link">View history</span>
         <input type="text" id="search-wiki" size="30" placeholder="Search AdelWiki">
         <i class="fa fa-angle-left fa-3x float-right light-red d-inline" id="arrow"
-           (click)="openChat()"></i>
+           (click)="isChatShown = true"></i>
+    </div>
+    <div [hidden]="!isChatShown">
+        <ng-template #content let-c="close" let-d="dismiss">
+            <iframe #iframe src="http://128.199.237.216" width="1200" height="900"></iframe>
+        </ng-template>
     </div>
     <div class="col-12 w-100 grey" id="main-content" *ngIf="commonService.hasDoc; else noid">
         <div *ngIf="commonService.selectedProject.isIdea">

@@ -1,4 +1,4 @@
-import {animate, Component, keyframes, OnInit, state, style, transition, trigger} from '@angular/core';
+import {animate, Component, keyframes, OnInit, state, style, transition, trigger, ViewChild} from '@angular/core';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {ChatComponent} from '../chat/chat.component';
 import {ActivatedRoute, Params} from '@angular/router';
@@ -9,9 +9,10 @@ import {CommonService} from '../../common.service';
     selector: 'wiki-page',
     templateUrl: './wiki-page.component.html',
     styleUrls: ['./wiki-page.component.scss'],
-    })
+})
 export class WikiPageComponent implements OnInit {
-    private editable: boolean = false;
+    private isChatShown: boolean = false;
+    @ViewChild('content') content;
     public isFroalaActive: boolean;
     public froalaHtml: string;
     public options = {
@@ -23,6 +24,7 @@ export class WikiPageComponent implements OnInit {
             }
         }
     };
+
     constructor(private modalService: NgbModal, private route: ActivatedRoute, public commonService: CommonService) {
     }
 
@@ -34,20 +36,20 @@ export class WikiPageComponent implements OnInit {
             });
     }
 
-    openChat() {
-        this.modalService.open(ChatComponent);
+    ngAfterViewInit() {
+        this.open(this.content);
     }
 
     saveWiki() {
         this.isFroalaActive = false;
-        //Some API here
+        // Some API here
     }
 
-    saveTitle(title, value) {
-        this.editable = true;
-        title = value;
-        console.log(title, value)
-
+    open(content) {
+        this.modalService.open(content).result.then((result) => {
+            console.log(result);
+        });
     }
+
 
 }
