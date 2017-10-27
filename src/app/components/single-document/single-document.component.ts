@@ -1,4 +1,7 @@
-import {animate, Component, Input, keyframes, OnInit, state, style, transition, trigger} from '@angular/core';
+import {
+    animate, Component, Input, keyframes, OnInit, Renderer, state, style, transition, trigger,
+    ViewChild
+} from '@angular/core';
 import {CommonService} from '../../common.service';
 
 @Component({
@@ -69,9 +72,10 @@ import {CommonService} from '../../common.service';
     ]
 })
 export class SingleDocumentComponent implements OnInit {
+    @ViewChild('fileInput') fileInput;
     @Input() documents;
 
-    constructor(public commonService: CommonService) {
+    constructor(public commonService: CommonService, private renderer: Renderer) {
     }
 
     ngOnInit() {
@@ -86,4 +90,27 @@ export class SingleDocumentComponent implements OnInit {
             }, 200);
         }
     }
+
+    editTitle(document, value) {
+        document.titleEditable = false;
+        document.title = value;
+
+    }
+
+    editImg() {
+        let event = new MouseEvent('click', {bubbles: true});
+        this.renderer.invokeElementMethod(
+            this.fileInput.nativeElement, 'dispatchEvent', [event]);
+    }
+
+    readUrl(evt, document, index) {
+        if (evt.target.files && evt.target.files[index]) {
+            let reader = new FileReader();
+            reader.onload = (evt: any) => {
+                document.imgPath = evt.target.result;
+            }
+            reader.readAsDataURL(evt.target.files[index]);
+        }
+    }
+
 }

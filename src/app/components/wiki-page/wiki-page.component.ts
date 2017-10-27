@@ -11,6 +11,7 @@ import {CommonService} from '../../common.service';
     styleUrls: ['./wiki-page.component.scss'],
     })
 export class WikiPageComponent implements OnInit {
+    private editable: boolean = false;
     public isFroalaActive: boolean;
     public froalaHtml: string;
     public options = {
@@ -42,9 +43,11 @@ export class WikiPageComponent implements OnInit {
         //Some API here
     }
 
-    hasDoc() {
-        console.log(this.commonService.hasDoc, 'hasDoc');
-    }
+    saveTitle(title, value) {
+        this.editable = true;
+        title = value;
+        console.log(title, value)
 
+    }
 
 }

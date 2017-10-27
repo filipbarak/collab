@@ -1,16 +1,33 @@
-<div *ngFor="let document of documents"
-     [@listState]
-     (click)="animateDoc(document)">
+<div *ngFor="let document of documents; let i = index"
+     [@listState]>
     <div class="col-12 project-container mb-2"
-         [@singleDocument]="document.state"
-         (click)="commonService.selectedProject = document; commonService.hasDoc = true"
+         (click)="commonService.hasDoc = true"
          routerLinkActive="active">
-        <img src={{document.imgPath}} class="img-fluid pb-2">
-        <div class="icons">
-            <i [class.active]="commonService.selectedProject.id == document.id" class="fa fa-lightbulb-o fa-2x ml-1" aria-hidden="true"></i>
-            <i class="fa fa-cog fa-2x ml-1" aria-hidden="true"></i>
-            <i class="fa fa-thumbs-up fa-2x ml-1" aria-hidden="true"></i>
-            <i class="fa fa-rocket fa-2x ml-1" aria-hidden="true"></i>
+        <div>
+            <strong *ngIf="!document.titleEditable">
+                <p [class.title-selected]="commonService.selectedProject.id == document.id"
+                   class="mb-0 pb-0"
+                   (click)="document.titleEditable = true">
+                    {{document.title}}</p>
+            </strong>
+            <input
+                    class="form-control form-control-sm mb-2"
+                    *ngIf="document.titleEditable"
+                    [value]="document.title"
+                    #titleVal
+                    (keyup.Enter)="editTitle(document, titleVal.value)"
+                    (keyup.Escape)="document.titleEditable = false"/>
+        </div>
+        <img src={{document.imgPath}} class="img-fluid pb-2" (click)="editImg()">
+        <input #fileInput type="file" class="d-none" (change)="readUrl($event, document, i)" [hidden]>
+        <div [@singleDocument]="document.state" (click)="animateDoc(document); commonService.selectedProject = document;">
+            <div class="icons">
+                <i [class.active]="commonService.selectedProject.id == document.id" class="fa fa-lightbulb-o fa-2x ml-1"
+                   aria-hidden="true"></i>
+                <i class="fa fa-cog fa-2x ml-1" aria-hidden="true"></i>
+                <i class="fa fa-thumbs-up fa-2x ml-1" aria-hidden="true"></i>
+                <i class="fa fa-rocket fa-2x ml-1" aria-hidden="true"></i>
+            </div>
         </div>
     </div>
 </div>

@@ -5,3 +5,7 @@
 .active {
    color: yellow;
 }
+
+.title-selected {
+    text-shadow: #EEEE00 0 0 10px;
+}

@@ -13,6 +13,8 @@ import {CommonService} from './common.service';
 import { DisqusComponent } from './components/disqus/disqus.component';
 import {DisqusModule} from 'angular2-disqus';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { NewDocModalComponent } from './components/new-doc-modal/new-doc-modal.component';
+import {FormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -23,7 +25,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
         ChatComponent,
         SingleDocumentComponent,
         EditorComponent,
-        DisqusComponent
+        DisqusComponent,
+        NewDocModalComponent
     ],
     imports: [
         BrowserModule,
@@ -32,7 +35,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
         DisqusModule,
         FroalaViewModule.forRoot(),
         AppRoutingModule,
-        BrowserAnimationsModule
+        BrowserAnimationsModule,
+        FormsModule
 
     ],
     entryComponents: [ChatComponent],

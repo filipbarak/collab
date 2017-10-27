@@ -3,6 +3,7 @@ import {
     trigger
 } from '@angular/core';
 import {CommonService} from '../../common.service';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
     selector: 'documents-component',
@@ -47,11 +48,12 @@ import {CommonService} from '../../common.service';
 
 })
 export class DocumentsComponentComponent implements OnInit {
+    public title: string;
     public documents = [];
     public bulbState: string = 'normal';
     private count = 0;
 
-    constructor() {
+    constructor(private modalService: NgbModal) {
     }
 
     ngOnInit() {
@@ -59,10 +61,11 @@ export class DocumentsComponentComponent implements OnInit {
 
     createDocument() {
         this.documents.push({
-            'title': 'New Project',
-            'imgPath': '../../../assets/blockchain-green.jpg',
+            'title': this.title,
+            'imgPath': '../../../assets/newdoc-placeholder.png',
             'id': this.count++,
-            'state': 'normal'
+            'state': 'normal',
+            'titleEditable': false
         });
         if (this.bulbState === 'normal') {
             this.bulbState = 'clicked';
@@ -71,6 +74,13 @@ export class DocumentsComponentComponent implements OnInit {
                 this.bulbState = 'normal';
             }, 300);
         }
+    }
+
+    open(content) {
+        this.modalService.open(content).result.then((result) => {
+        }, (reason) => {
+
+        });
     }
 
 }
