@@ -11,11 +11,9 @@
         <i class="fa fa-angle-left fa-3x float-right light-red d-inline" id="arrow"
            (click)="isChatShown = true"></i>
     </div>
-    <div [hidden]="!isChatShown">
-        <ng-template #content let-c="close" let-d="dismiss">
-            <iframe #iframe src="http://128.199.237.216" width="1200" height="900"></iframe>
-        </ng-template>
-    </div>
+    <ng-template #content let-c="close" let-d="dismiss">
+        <iframe #iframe src="http://128.199.237.216" width="1200" height="900" [hidden]="!isChatShown"></iframe>
+    </ng-template>
     <div class="col-12 w-100 grey" id="main-content" *ngIf="commonService.hasDoc; else noid">
         <div *ngIf="commonService.selectedProject.isIdea">
             <div *ngIf="isFroalaActive">

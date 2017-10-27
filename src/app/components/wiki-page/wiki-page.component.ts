@@ -37,7 +37,9 @@ export class WikiPageComponent implements OnInit {
     }
 
     ngAfterViewInit() {
-        this.open(this.content);
+        setTimeout(() => {
+            this.open(this.content);
+        }, 2000);
     }
 
     saveWiki() {
