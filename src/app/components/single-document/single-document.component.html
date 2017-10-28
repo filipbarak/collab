@@ -10,29 +10,36 @@
                    (click)="document.titleEditable = true">
                     {{document.title}}</p>
             </strong>
-            <input
-                    class="form-control form-control-sm mb-2"
-                    *ngIf="document.titleEditable"
-                    [value]="document.title"
-                    #titleVal
-                    (keyup.Enter)="editTitle(document, titleVal.value)"
-                    (keyup.Escape)="document.titleEditable = false"/>
+            <div *ngIf="document.titleEditable">
+                <input
+                        class="form-control form-control-sm mb-2"
+                        [value]="document.title"
+                        #titleVal
+                        (keyup.Enter)="editTitle(document, titleVal.value)"
+                        (keyup.Escape)="document.titleEditable = false"/>
+                <i class="fa fa-check checkmark"
+                   aria-hidden="true"
+                   style="color: green"
+                   (click)="editTitle(document, titleVal.value)"
+                ></i>
+            </div>
         </div>
         <img (click)="commonService.selectedProject = document" src={{document.imgPath}} class="img-fluid pb-2">
 
-        <div [@singleDocument]="document.state" (click)="animateDoc(document); commonService.selectedProject = document;">
+        <div [@singleDocument]="document.state"
+             (click)="animateDoc(document); commonService.selectedProject = document;">
             <div class="icons">
                 <i [class.active]="document.isIdea === true"
-                   class="fa fa-lightbulb-o fa-2x ml-1"
+                   class="fa fa-lightbulb-o fa-2x ml-1 not-active"
                    (click)="document.isIdea = true"
                    aria-hidden="true"></i>
-                <i class="fa fa-cog fa-2x ml-1"
+                <i class="fa fa-cog fa-2x ml-1 not-active"
                    [class.active]="document.isIdea === false"
                    (click)="document.isIdea = false"
                    aria-hidden="true"></i>
-                <i class="fa fa-thumbs-up fa-2x ml-1" aria-hidden="true"></i>
+                <i class="fa fa-thumbs-up fa-2x ml-1 not-active" aria-hidden="true"></i>
 
-                <i class="fa fa-rocket fa-2x ml-1" (click)="editImg()" aria-hidden="true"></i>
+                <i class="fa fa-rocket fa-2x ml-1 not-active" (click)="editImg()" aria-hidden="true"></i>
                 <input #fileInput type="file" class="d-none" (change)="readUrl($event, document, i)" [hidden]>
             </div>
         </div>

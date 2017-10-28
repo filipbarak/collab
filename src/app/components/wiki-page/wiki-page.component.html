@@ -2,7 +2,7 @@
     <div class="col-12 w-100 header-bar grey">
         <div *ngIf="commonService.hasDoc" class="d-inline">
             <i class="fa fa-caret-up" aria-hidden="true"></i>
-            <span class="h5 mr-2" *ngIf="commonService.selectedProject.isIdea">Project Idea</span>
+            <span class="h5 mr-2" *ngIf="commonService.selectedProject.isIdea">Idea Incubation</span>
             <span class="h5 mr-2" *ngIf="!commonService.selectedProject.isIdea">Project Plan</span>
             <i class="fa fa-caret-up" aria-hidden="true"></i>
         </div>
@@ -10,7 +10,7 @@
         <span class="mr-2" (click)="saveWiki()">Read</span>
         <span class="mr-2 link" (click)="isFroalaActive = true">Edit</span>
         <span class="mr-2 link">View history</span>
-        <input type="text" id="search-wiki" size="30" placeholder="Search AdelWiki" #searchVal
+        <input type="text" id="search-wiki" size="30" placeholder="Search AdelWiki&trade;" #searchVal
                (focus)="filteredProjects = commonService.documents;"
                (keyup)="filterProjects($event, searchVal.value, myDrop)">
         <!--<div ngbDropdown #docDrop class="d-inline-block">-->

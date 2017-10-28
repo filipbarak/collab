@@ -66,7 +66,7 @@ export class DocumentsComponentComponent implements OnInit {
             'id': this.count++,
             'state': 'normal',
             'titleEditable': false,
-            'isIdea': false
+            'isIdea': true
         });
         if (this.bulbState === 'normal') {
             this.bulbState = 'clicked';

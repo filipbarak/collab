@@ -3,9 +3,23 @@
 }
 
 .active {
-   color: yellow;
+   color: yellow !important;
+    opacity: 1 !important;
+}
+
+.not-active {
+    color: grey;
+    opacity: 0.6;
 }
 
 .title-selected {
     text-shadow: #EEEE00 0 0 10px;
+}
+
+.checkmark {
+    position: absolute;
+    left: 85%;
+    bottom: 89%;
+    z-index: 9999;
+    cursor: pointer;
 }
