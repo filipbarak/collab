@@ -11,6 +11,7 @@ const packageJ = require('../../../../package.json');
     selector: 'wiki-page',
     templateUrl: './wiki-page.component.html',
     styleUrls: ['./wiki-page.component.scss'],
+
 })
 export class WikiPageComponent implements OnInit {
     private filteredProjects = [];
